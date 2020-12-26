@@ -1,0 +1,57 @@
+Algoritmo
+// Matéria     : constantes, variáveis, escreva, leia, procedimento
+// Autor(a)    : Gustavo Dourado Santos
+
+const
+  COMISSAO = 5 / 100
+Var
+// Seção de Declarações das variáveis
+nomeVendedor: caracter
+numeroCarro: inteiro
+salarioFixo, valorFixoComissao, totalVenda: real
+comissaoFixa, comissaoVenda: real
+salarioReceber: real
+
+// Tipos de Variáveis
+// caracter = texto
+// inteiro = sem casas decimais
+// real = com casas decimais
+// logico = booleano
+
+//
+// // tituloTela - Exibe o título.
+//
+procedimento tituloTela
+inicio
+  escreval("Cálculo do Total a Receber por Vendedor")
+  escreval("---------------------------------------")
+  escreval
+fimprocedimento
+
+Inicio
+tituloTela
+
+// Entrada de Dados
+escreva("Nome do Vendedor          : ")
+leia(nomeVendedor)
+escreva("Salário Fixo              : ")
+leia(salarioFixo)
+escreva("Comissão Fixa por Carro   : ")
+leia(valorFixoComissao)
+escreva("Número de Carros Vendidos : ")
+leia(numeroCarro)
+escreva("Total de Vendas em R$     : ")
+leia(totalvenda)
+
+// Processamento
+comissaoVenda := totalVenda * COMISSAO
+comissaoFixa := valorFixoComissao * numeroCarro
+salarioReceber := salarioFixo + ComissaoVenda + comissaoFixa
+
+// Saída de Dados
+limpatela
+tituloTela
+escreval("Nome do Vendedor          : ", nomeVendedor)
+escreval("Salário a Receber em R$   :" , salarioReceber)
+
+Fimalgoritmo
