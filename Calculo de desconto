@@ -1,0 +1,14 @@
+Algoritmo "valor de um produto"
+//Gustavo Dourado Santos
+
+Var
+vp: real     //valor do produto
+desconto:real
+
+Inicio
+ escreva("Digite aqui o valor do produto:R$")
+ leia(vp)
+ escreva("digite aqui o desconto")
+ leia(desconto)
+ escreva("valor com desconto:R$",vp -(vp * desconto /100) )
+Fimalgoritmo
