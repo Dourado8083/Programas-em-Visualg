@@ -1,0 +1,14 @@
+algoritmo "Exercicio10"
+var
+ valoremReal:real
+ conversao:real
+ cotacaodolar:real
+inicio
+//Digite a quantidade em Reais que você vai querer converter...
+Escreval("Digite a quantidade que deseja converter:R$")
+leia(valoremReal)
+Escreval("Digite o valor do dolar hoje :R$")
+leia(cotacaodolar)
+conversao<-valoremReal/cotacaodolar
+Escreval("Esse é a quantidade de Dolares :",Conversao:2:2)
+fimalgoritmo
