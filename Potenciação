@@ -1,0 +1,16 @@
+Algoritmo "Potenciação"
+Var
+// Seção de Declarações das variáveis
+x:inteiro
+y:inteiro
+s:real
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc...
+Escreval("Digite um valor")
+leia(x)
+Escreval("Digite outro valor")
+leia(y)
+ s<-x^y
+ Escreval( s , " é o resultado ")
+Fimalgoritmo
