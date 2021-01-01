@@ -1,0 +1,19 @@
+Algoritmo "Troca de Posição"
+
+
+Var
+x:inteiro
+y:inteiro
+troca:inteiro
+
+
+Inicio
+escreval("Digite o x:")
+leia(x)
+escreva("Digite o y:")
+leia(y)
+troca <- x;
+x <- y;
+y <- troca;
+escreva("o valor de x é",x, ",O valor de y é" ,y)
+Fimalgoritmo
