@@ -1,0 +1,28 @@
+Algoritmo "Divisível por 2 e por 3"
+Var
+   // Seção de Declarações das variáveis
+   A:inteiro
+   x1:inteiro
+   x2:inteiro
+
+
+Inicio
+   // Seção de Comandos, procedimento, funções, operadores, etc...
+   Escreval("Digite um valor :")
+   leia(A)
+   x1<-(A %2)
+   x2<-(A %3)
+   se(x1=0) e (x2=0)então
+      escreval(" Esse numero é divisível por 2 e 3.")
+   senão
+      se(x1=0)então
+         Escreval("Esse numero é divisível por 2.")
+      senão
+         se(x2=0) então
+            Escreval("Esse numero é divisível por 3.")
+         senão
+            Escreval("não é divisível por 2 e 3.")
+         fimSe
+      fimSe
+   fimSe
+   fimalgoritmo
