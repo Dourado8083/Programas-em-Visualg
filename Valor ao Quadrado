@@ -1,0 +1,8 @@
+Algoritmo "Quadrado"
+Var
+x:real
+Inicio
+Escreval("Digite um valor:")
+leia(x)
+Escreva("O valor ao quadrado é:",x*x)
+Fimalgoritmo
