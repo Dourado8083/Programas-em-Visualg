@@ -1,0 +1,19 @@
+algoritmo "Idade"
+var
+IP: inteiro
+inicio
+escreval ("Informe a idade :")
+leia (IP)
+se IP < 16 entao
+escreval("MENOR")
+senao
+fimse
+se (IP <= 17) e (IP >=16) entao
+escreval("EMANCIPADO")
+senao
+fimse
+se IP > 17 entao
+escreval("MAIOR")
+senao
+fimse
+fimalgoritmo
