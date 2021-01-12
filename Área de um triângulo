@@ -1,0 +1,12 @@
+algoritmo "Triangulo"
+var
+b, at, a : real
+inicio
+escreva ("Digite a base do triangulo:")
+leia(b)
+escreva ("Digite a altura do triangulo:")
+leia (at)
+a <- (b*at)/2
+limpatela
+escreval("A Àrea do triangulo é:",a)
+fimalgoritmo
