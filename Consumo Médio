@@ -1,0 +1,16 @@
+algoritmo "Consumo Medio"
+// 
+//  
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 13/01/2021
+var
+dp,tc, cm: real
+inicio
+escreva("Digite a distância percorrida.:")
+leia(dp)
+escreva("Digite o total de combustível gasto [lt].:")
+leia(tc)
+cm <- dp/tc
+escreva("O consumo médio do automovél é de ",cm," Km por Lt")
+fimalgoritmo
