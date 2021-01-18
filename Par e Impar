@@ -1,0 +1,15 @@
+Algoritmo "par e impar"
+// 
+//  
+
+var
+A:inteiro
+inicio
+escreval ("entre com o valor de A :")
+leia (A)
+se (A mod 2)=0 entao
+escreval ("é par",A^2)
+senao
+escreval ("é impar", A^3)
+fimse
+fimalgoritmo
