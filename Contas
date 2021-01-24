@@ -1,0 +1,19 @@
+algoritmo "contas"
+// Leia duas variaves A e B. A seguir, calcule a soma, a diferença, o produto e a divisão
+//entre elas. A seguir mostre o resultado de cada conta com as mensagens correspondentes.
+var
+A,B,soma, diferenca,produto,divi: real
+inicio
+escreva("Digite um valor para A.:")
+leia (A)
+escreva("Digite um valor para B.:")
+leia (B)
+soma <- A+B
+diferenca <- A-B
+produto <- A*B
+divi <- A/B
+escreval("Soma .:",soma)
+escreval("Diferênça .:",diferenca)
+escreval("Produto .:",produto)
+escreval("Divisão .:",divi)
+fimalgoritmo
