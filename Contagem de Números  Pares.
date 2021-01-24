@@ -1,0 +1,13 @@
+algoritmo "Exercicio06"
+// Função : Laço de repetição
+// Autor : Adriano Cavalcante
+//E-mail: [Você precisa estar registrado e conectado para ver este link.]
+var i: inteiro
+inicio
+escreva()
+para i de 1 ate 50 faca
+se (i mod 2 = 0) entao
+escreval( "O numero '",i,"' é par")
+fimse
+fimpara
+fimalgoritmo
