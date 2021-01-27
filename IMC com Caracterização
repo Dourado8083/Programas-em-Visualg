@@ -1,0 +1,29 @@
+algoritmo "exercicio9"
+var
+imc,peso, altura : real
+condicao:caracter
+inicio
+escreva ("Digite a altura do adulto:")
+leia(altura)
+escreva ("Digite o peso:")
+leia(peso)
+imc <- peso/(altura^2)
+escreval (imc)
+se (imc < 18.5) entao
+condicao<- ("Abaixo da média")
+senao
+fimse
+se(imc <=25) e (imc >=18.5) entao
+condicao <- ("Peso normal ")
+senao
+fimse
+se (imc >=30) e (imc >=25.01) entao
+condicao<- ("Acima do peso ")
+senao
+fimse
+se(imc >30)entao
+condicao <- ("Obeso ")
+senao
+fimse
+escreval ("Condição = ",condicao)
+fimalgoritmo
