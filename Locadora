@@ -1,0 +1,31 @@
+algoritmo "exercicio11"
+
+var
+ds,tipo_filme:inteiro //ds - dia da semana
+preco_normal, valor_final:real
+inicio
+// Seção de Comandos - entrada de dados
+escreval ("dia da semana ")
+leia (ds)
+escreval ("Lançamento (1/2) ")
+leia(tipo_filme)
+escreval ("Valor locação fita ")
+leia(preco_normal)
+//processamento
+escolha ds
+caso 2,3,5
+se tipo_filme=1 entao
+valor_final<-preco_normal*1.15
+senao
+valor_final<-preco_normal*0.6
+fimse
+caso 1,4,6,7
+se tipo_filme=1 entao
+valor_final<-preco_normal*1.15
+senao
+valor_final<-preco_normal
+fimse
+fimescolha
+limpatela
+escreval("Valor da locação para o ",ds,"° dia da semana é R$",valor_final)
+fimalgoritmo
