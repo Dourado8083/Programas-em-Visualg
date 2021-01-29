@@ -1,0 +1,8 @@
+algoritmo "Contagem"
+var
+i :inteiro
+inicio
+para i de 10 ate 1000 passo 10 faca
+escreval( i)
+fimpara
+fimalgoritmo
