@@ -1,0 +1,200 @@
+Algoritmo"Cadastro de Aluno"
+const
+  ANO_ATUAL = 2020
+  INCLUSAO = 1
+  ALTERACAO = 2
+Var
+// Seção de Declarações das variáveis
+// Tipos de Variáveis
+nomeAluno: caracter
+idadeAluno: inteiro
+cidadeAluno: caracter
+estadoAluno: caracter
+
+anoNascimento: inteiro
+dobroIdade: inteiro
+divisaoIdade: real
+texto: caracter
+
+opcaoMenu: inteiro
+
+// Variável criada como artifício para parar a
+// execução do programa
+vazio: caracter
+
+// inteiro
+// caractere -> Textos
+// logico -> VERDADEIRO / FALSO
+// real -> vírgula - Decimal
+//
+// // tituloTela - Exibe o título da tela.
+//
+procedimento tituloTela
+var
+// Seção de Declarações Internas
+  titulo: caracter
+  tamanhoTexto: inteiro
+inicio
+// Seção de Comandos
+  titulo := "Cadastro dos Alunos da Terceira Jornada da Programação"
+  escreval(titulo)
+  tamanhoTexto := compr(titulo)
+  imprimeTraco(tamanhoTexto)
+  escreval
+
+fimprocedimento
+//
+// imprimeTraco - Exibe na linha corrente a quantidade
+//                de traços solicitados à rotina.
+procedimento imprimeTraco(numeroTraco: inteiro)
+var
+  contador: inteiro
+inicio
+  para contador de 1 ate numeroTraco faca
+    escreva("-")
+  fimpara
+  escreval
+fimprocedimento
+//
+// // inclusao - Permite a inclusão dos alunos.
+//
+procedimento inclusao(subTitulo: caracter)
+inicio
+  limpatela
+  tituloTela
+
+  exibeTexto(subTitulo)
+
+  // Entrada de Dados
+  escreva("Nome   : ")
+  leia(nomeAluno)
+  se nomeAluno = "João Luiz" entao
+    // Pular Linha
+    escreval
+    escreva("Infelizmente, o seu cadastro não pode ser concluído !")
+    leia(vazio)
+  senao
+    se nomeAluno <> "" entao
+      // Indentação -> LEGIBILIDADE do CÓDIGO
+      escreva("Idade  : ")
+      leia(idadeAluno)
+      // Atribuição
+      anoNascimento := ANO_ATUAL - idadeAluno
+      escreva("Cidade : ")
+      leia(cidadeAluno)
+      escreva("Estado : ")
+      leia(estadoAluno)
+
+      // Operações Matemáticas
+      // +,-,*,/
+
+      // Multiplicando no VisualG
+      dobroIdade := idadeAluno * 2 + ANO_ATUAL
+
+      // Dividindo no VisualG
+      divisaoIdade := idadeAluno / 2 + ANO_ATUAL
+
+      // Pular Linha
+      escreval
+
+      // Concatenação é a SOMA de dois textos
+      // Sintaxe completa do Escreva
+      texto := nomeAluno + ", você nasceu em"
+
+      // Temporizador para fazer com que o processamento
+      // seja retardado pelo período em segundos
+      // informado ao comando timer
+      // timer 10000
+      escreva(texto, AnoNascimento, " !")
+      leia(vazio)
+    fimse
+  fimse
+fimprocedimento
+//
+// // exibeTexto
+//
+procedimento exibeTexto(texto: caracter)
+inicio
+  escreval(texto)
+  imprimeTraco(compr(texto))
+  escreval
+fimprocedimento
+//
+// // exibeDadoAluno - Exibe os dados do aluno..
+//
+procedimento exibeDadoAluno
+inicio
+
+  escreval("Idade  : ", idadeAluno)
+  escreval("Cidade : ", cidadeAluno)
+  escreval("Estado : ", estadoAluno)
+
+fimprocedimento
+//
+// // alteracao - Permite a alteração dos dados do
+//                aluno.
+procedimento alteracao
+var
+  nomeAlteracao: caracter
+  simNao: caracter
+inicio
+limpatela
+tituloTela
+exibeTexto("Alteração dos Dados do Aluno")
+
+escreva("Nome   : ")
+leia(nomeAlteracao)
+// Se o Nome Existir
+se nomeAluno = nomeAlteracao entao
+  exibeDadoAluno
+  // Pular Linha
+  escreval
+  escreva("Deseja Alterar os Dados do Aluno(a) ? (S/N)")
+  leia(simNao)
+  se maiusc(simNao) = "S" entao
+    inclusao("Alteração dos Dados do Aluno")
+  fimse
+senao
+  // Pular Linha
+  escreval
+  escreva("Aluno não cadastrado !")
+  leia(vazio)
+fimse
+
+fimprocedimento
+//
+// // Programa Principal
+//
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc...
+
+repita
+
+  limpatela
+  tituloTela
+
+  escreval("1 - Inclusão")
+  escreval("2 - Alteração")
+  escreval("3 - Exclusão")
+  escreval("0 - Sair")
+  escreval
+  escreva("Digite a opção Desejada : ")
+  leia(opcaoMenu)
+
+  escolha opcaoMenu
+
+  caso INCLUSAO
+    inclusao("Inclusão de Novos Alunos")
+  caso ALTERACAO
+    alteracao
+  caso 3
+  caso 0
+  outrocaso
+    escreval
+    escreva("Opção Inválida !")
+    leia(vazio)
+  fimescolha
+
+ate opcaoMenu = 0
+
+Fimalgoritmo
