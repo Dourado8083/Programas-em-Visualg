@@ -1,0 +1,68 @@
+Algoritmo "Horti-Fruti"
+
+Var
+// Seção de Declarações das variáveis
+nomeCliente: caracter
+kgUva, kgMaca, kgManga, kgTotal: real
+valorUva, valorMaca, valorManga: real
+totalCompra: real
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc...
+escreval("Registradora do HortiFruti")
+escreval("----------------------------------------------------")
+escreval
+
+// Entrada de Dados
+escreva("Nome do Cliente           : ")
+leia(nomeCliente)
+escreva("Quantidade em Kg de Uva   : ")
+leia(kgUva)
+escreva("Quantidade em Kg de Maçã  : ")
+leia(kgMaca)
+escreva("Quantidade em Kg de Manga : ")
+leia(kgManga)
+
+// Processamento
+
+// Calculando o valor gasto pelo cliente com Uva
+se kgUva < 5 entao
+  valorUva <- kgUva * 12,90
+senao // Maior ou Igual a 5
+  valorUva <- kgUva * 10,90
+fimse
+
+// Calculando o valor gasto pelo cliente com Maçã
+se kgMaca < 5 entao
+  valorMaca <- kgMaca * 7,50
+senao // Maior ou Igual a 5
+  valorMaca <- kgMaca * 4,80
+fimse
+
+// Calculando o valor gasto pelo cliente com Manga
+se kgManga < 5 entao
+  valorManga <- kgManga * 5,99
+senao // Maior ou Igual a 5
+  valorManga <- kgManga * 3,49
+fimse
+
+// Calculo o Peso da Compra
+kgTotal := kgUva + kgMaca + kgManga
+// Calcula o Total da Compra
+totalCompra := valorUva + valorMaca + valorManga
+
+se (totalCompra > 50) ou (kgTotal > 8) entao
+  // 10% de Desconto
+  totalCompra := totalCompra * 90 / 100
+fimse
+
+// Saída de Dados
+limpatela
+escreval("Registradora do HortiFruti da Jornada da Programação")
+escreval("----------------------------------------------------")
+escreval
+
+escreval("Nome do Cliente : ", nomeCliente)
+escreval("Total em Kg     : ", kgTotal)
+escreval("Total da Compra : R$", totalCompra)
+Fimalgoritmo
