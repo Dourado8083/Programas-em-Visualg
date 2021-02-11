@@ -1,0 +1,18 @@
+/ O preço de um automovel é calculado pela soma do preço de fabrica com o preço dos
+//impostos (45% do preço de fabrica) e a porcentagem do revendedor (28% do preço de fabrica).ç
+// Faça um algoritmo que leia o nome do automovel e o preço de fabrica. Escreva o nome do automovel
+// e o preço final.
+var
+nome:literal
+pfabrica,pr,imp,pf: real
+inicio
+escreva ("Digite o nome do automovél.:")
+leia(nome)
+escreva("Digite o preço de fábrica do automovél.:")
+leia(pfabrica)
+imp <- pfabrica*0.45
+pr <- pfabrica*0.28
+pf<- imp+pr+pfabrica
+limpatela
+escreval("O preço final do automovél.:",nome," é R$.",pf)
+fimalgoritmo
