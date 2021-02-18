@@ -1,0 +1,26 @@
+algoritmo "exercicio12"
+// Veronica distribui sua renda mensal da seguinte forma: 10% saude, 25% educação, 30% alimentação,
+// 10% vestuário, 5% lazer, 20% outros. Faça um algoritmo que leia a renda mensal liquida de veronica, calcule e escreva
+// o valor em cada item acima citado.
+var
+saude,vest, edu, ali, lazer, out :real
+rmes,gt : real
+inicio
+escreva ("Digite sua renda mensal liquida.:")
+leia(rmes)
+saude <- (rmes*10)/100
+edu <- (rmes*25)/100
+ali <- (rmes*30)/100
+vest <- (rmes*10)/100
+lazer <- (rmes*5)/100
+out <- (rmes*20)/100
+limpatela
+gt <- saude+edu+ali+vest+lazer+ out
+escreval ("Valor aplicado em saúde .:",saude)
+escreval ("Valor aplicado em educação .:",edu)
+escreval ("Valor aplicado em alimentação.:",ali)
+escreval ("Valor aplicado em vestuário .:",vest)
+escreval ("Valor aplicado em lazer .:",lazer)
+escreval ("Valor aplicado em outros .:",out)
+escreval("Gasto total .:",gt)
+fimalgoritmo
