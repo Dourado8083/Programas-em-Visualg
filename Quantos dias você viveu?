@@ -1,0 +1,11 @@
+var
+idade: real
+inicio
+escreval("Programa para calcúlo de idade")
+escreval()
+escreva ("Qual a sua idade ?.:")
+leia(idade)
+idade <- idade *365,25
+escreva("Você já viveu ",idade," dias")
+escreval("")
+fimalgoritmo
