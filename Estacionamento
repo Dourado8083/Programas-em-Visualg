@@ -1,0 +1,1073 @@
+ Algoritmo "JP Sistema Automatizado de Controle de Vagas de Estacionamento - Aula 3 em 22/11/2020"
+// Matéria     : Criar um Controle de Vagas de um Estacionamento.
+// Descrição   : procedimento e função
+
+const
+  cNUMERO_VAGA = 10
+
+Var
+// Seção de Declarações das variáveis
+vVaga: vetor[1..cNUMERO_VAGA] de logico
+
+//
+// // saida - Permite o registro de saída dos carros.
+//              dos carros.
+procedimento saida
+var
+  vaga: inteiro
+  vazio: caracter
+inicio
+repita
+  limpatela
+  tituloTela
+
+  escreva("Informe o Número da Vaga que Deseja : ")
+  leia(vaga)
+
+  escreval
+  se nao (vaga >= 1) e (vaga <= cNUMERO_VAGA) entao
+    se vaga <> 0 entao
+      escreval("A vaga de número", vaga, " não existe !")
+      leia(vazio)
+    fimse
+  senao
+    se nao verificaVaga(vaga) entao
+      escreva("Esta vaga NÃO está ocupada ! Tecle <Enter> para Continuar !")
+      leia(vazio)
+      escreval
+      listarVaga
+      leia(vazio)
+    senao
+      escreva("Agradeça ao cliente por deixar seu carro sob nossos cuidados.")
+      atualizaVaga(vaga)
+      leia(vazio)
+    fimse
+  fimse
+
+ate vaga = 0
+fimprocedimento
+//
+// // atualizaVaga - Se a vaga estiver disponível,
+//                   torna-a ocupada. Se estiver
+//                   ocupada, torna-a disponível.
+procedimento atualizaVaga(vaga: inteiro)
+inicio
+  se vVaga[vaga] entao
+    vVaga[vaga] := FALSO
+  senao
+    vVaga[vaga] := VERDADEIRO
+  fimse
+fimprocedimento
+//
+// // verificaVaga - Verifica se a vaga está em uso ou
+//                   não.
+funcao verificaVaga(vaga: inteiro): logico
+inicio
+  //
+  se vVaga[vaga] entao
+    retorne VERDADEIRO
+  senao
+    retorne FALSO
+  fimse
+fimfuncao
+//
+// // centraliza - Centraliza o texto no espaço
+//                 passados por parâmetro.
+funcao centraliza(texto: caracter; tamanhoEspaco: inteiro): caracter
+var
+  contador, resto: inteiro
+  numeroEspaco: inteiro
+  tamanhoNovoTexto: inteiro
+inicio
+  resto := (tamanhoEspaco - compr(texto)) mod 2
+  numeroEspaco := int((tamanhoEspaco - compr(texto)) / 2)
+  se resto <> 0 entao
+    numeroEspaco := numeroEspaco + 1
+  fimse
+  para contador de 1 ate numeroEspaco faca
+    texto := " " + texto
+  fimpara
+
+  tamanhoNovoTexto := compr(texto)
+  para contador de 1 ate tamanhoEspaco - tamanhoNovoTexto faca
+    texto := texto + " "
+  fimpara
+  retorne texto
+fimfuncao
+//
+// // listarVaga - Lista o STATUS das vagas do
+//                 estacionamento.
+procedimento listarVaga
+var
+  contador: inteiro
+inicio
+
+escreval
+escreval("Número Ocupada")
+escreval("------ -------")
+para contador de 1 ate cNUMERO_VAGA faca
+  escreva(centraliza(numpcarac(contador), 6), " ")
+  se vVaga[contador] entao
+    escreva(centraliza("Sim", 7) + " ")
+  senao
+    escreva(centraliza("Não", 7) + " ")
+  fimse
+  escreval
+fimpara
+fimprocedimento
+//
+// // entrada - Permite ou não o registro de entrada
+//              dos carros.
+procedimento entrada
+var
+  vaga: inteiro
+  vazio: caracter
+inicio
+repita
+  limpatela
+  tituloTela
+
+  escreva("Informe o Número da Vaga que Deseja : ")
+  leia(vaga)
+
+  escreval
+  se nao (vaga >= 1) e (vaga <= cNUMERO_VAGA) entao
+    se vaga <> 0 entao
+      escreval("A vaga de número", vaga, " não existe !")
+      leia(vazio)
+    fimse
+  senao
+    se verificaVaga(vaga) entao
+      escreva("Esta vaga NÃO está disponível ! Tecle <Enter> para Continuar !")
+      leia(vazio)
+      escreval
+      listarVaga
+      leia(vazio)
+    senao
+      escreva("Peça para o cliente estacionar na vaga", vaga, ".")
+      atualizaVaga(vaga)
+      leia(vazio)
+    fimse
+  fimse
+ate vaga = 0
+fimprocedimento
+//
+// // Menu Principal
+//
+procedimento menuPrincipal
+var
+  opcaoMenu: inteiro
+  vazio: caracter
+inicio
+
+repita
+  limpatela
+  tituloTela
+
+  escreval("1 - Entrada")
+  escreval("2 - Saída")
+  escreval("3 - Lista Vagas")
+  escreval("0 - Sair")
+  escreval
+  escreva ("Digite a Opção Desejada : ")
+  leia(opcaoMenu)
+
+  escreval
+  escolha opcaoMenu
+  caso 1
+    entrada
+  caso 2
+    saida
+  caso 3
+    listarVaga
+    leia(vazio)
+  caso 0
+  outrocaso
+    escreva("Opção Inválida !")
+    leia(vazio)
+  fimescolha
+ate opcaoMenu = 0
+fimprocedimento
+//
+// // exibeTraco - Exibe na linha corrente a
+//                 quantidade de traços solicitados
+//                 à rotina
+funcao exibeTraco(numeroTraco: inteiro): caracter
+var
+  contador: inteiro
+  traco: caracter
+inicio
+  para contador de 1 ate numeroTraco faca
+    traco := traco + "-"
+  fimpara
+  retorne traco
+fimfuncao
+//
+// // tituloTela - Exibe o Título da Tela.
+//
+procedimento tituloTela
+const
+  cTEXTO = "Controle de Vagas de um Estacionamento"
+var
+inicio
+  escreval(centraliza(cTEXTO, 66))
+  escreval(centraliza(exibeTraco(compr(cTEXTO)), 66))
+  escreval
+fimprocedimento
+//
+// // Programa Principal
+//
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc...
+
+menuPrincipal
+
+Fimalgoritmo
+[19:56, 24/02/2021] Gustavo Dourado??: Algoritmo "Sistema de Gerenciamento de Estacionamento - Rotativo"
+// Matéria     : Desenvolvendo um Sistema do ZERO.
+// Professor   : João Luiz
+// Descrição   : Parte 10 - Estacionamento Rotativo.
+// Autor(a)    : Professor João Luiz
+// Data atual  : Jornal da Programação Edição 17/10/2020
+
+const
+  cTOLERANCIA = 21  // Minutos
+
+  cVALOR_MINIMO_MOTO = 5
+  cVALOR_MINIMO_CARRO = 10
+
+  cVALOR_HORA_MOTO = 5
+  cVALOR_HORA_CARRO = 10
+
+  cNUMERO_VEICULO = 2
+
+Var
+// Seção de Declarações das variáveis
+vTipoVeiculo: vetor [1..cNUMERO_VEICULO] de inteiro
+vDia: vetor [1..12] de inteiro
+
+placa, tipoVeiculo: caracter
+dataEntrada, horaEntrada: caracter
+
+//
+// // fSomaHora - Calcula a soma entre dois horários
+//                passados como parâmetro.
+funcao fSomaHora(horaE, horaS: caracter): caracter
+var
+  horaEntrada, minutoEntrada, segundoEntrada: inteiro
+  horaSaida, minutoSaida, segundoSaida: inteiro
+  somaHora, somaMinuto, somaSegundo: inteiro
+  textoSegundo, textoMinuto, textoHora: caracter
+
+inicio
+  // Decomposição da Hora de Entrada
+  horaEntrada := caracpnum(copia(horaE, 1, 2))
+  minutoEntrada := caracpnum(copia(horaE, 3, 2))
+  segundoEntrada := caracpnum(copia(horaE, 5, 2))
+
+  // Decomposição da Hora de Saída
+  horaSaida := caracpnum(copia(horaS, 1, 2))
+  minutoSaida := caracpnum(copia(horaS, 3, 2))
+  segundoSaida := caracpnum(copia(horaS, 5, 2))
+
+  somaSegundo := segundoEntrada + SegundoSaida
+  se somaSegundo >= 60 entao
+    somaSegundo := somaSegundo - 59
+    somaMinuto := somaMinuto + 1
+  fimse
+
+  somaMinuto := somaMinuto + (minutoEntrada + minutoSaida)
+  se somaMinuto >= 60 entao
+    somaMinuto := somaMinuto - 59
+    somaHora := somaHora + 1
+  fimse
+
+  // Somo os valores correspondentes as horas dos
+  // horários passados como parâmetro
+  somaHora := somaHora + (horaEntrada + horaSaida)
+
+    // Verifico se Diferença entre os números que
+  // representam os segundos tem um ou dois dígitos
+  se somaSegundo > 9 entao
+    textoSegundo := numpcarac(somaSegundo)
+  senao
+    textoSegundo := "0" + numpcarac(somaSegundo)
+  fimse
+
+  // Se o minutoSaida for Menor que o Minuto de Entrada
+  se somaMinuto > 9 entao
+    textoMinuto := numpcarac(somaMinuto)
+  senao
+    textoMinuto := "0" + numpcarac(somaMinuto)
+  fimse
+
+  // Calcular a diferença entre as horas
+  se somaHora > 9 entao
+    textoHora := numpcarac(somaHora)
+  senao
+    textoHora := "0" + numpcarac(somaHora)
+  fimse
+
+  retorne textoHora + textoMinuto + textoSegundo
+fimfuncao
+//
+// // fDiferencaHora - Calcula a diferenca em hora,
+//                     minuto, segundo entre duas
+//                     passadas por parâmetro.
+funcao fDiferencaHora(pHoraEntrada, pHoraSaida: caracter): caracter
+var
+  horaEntrada, minutoEntrada, segundoEntrada: inteiro
+  horaSaida, minutoSaida, segundoSaida: inteiro
+  diferencaHora, diferencaMinuto, diferencaSegundo: inteiro
+  textoHora, textoMinuto, textoSegundo : caracter
+inicio
+  // Decomposição da Hora de Entrada
+  horaEntrada := caracpnum(copia(pHoraEntrada, 1, 2))
+  minutoEntrada := caracpnum(copia(pHoraEntrada, 4, 2))
+  segundoEntrada := caracpnum(copia(pHoraEntrada, 7, 2))
+
+  // Decomposição da Hora de Saída
+  horaSaida := caracpnum(copia(pHoraSaida, 1, 2))
+  minutoSaida := caracpnum(copia(pHoraSaida, 4, 2))
+  segundoSaida := caracpnum(copia(pHoraSaida, 7, 2))
+
+  // Se o segundoSaida for Menor que o Segundo de Entrada
+  se segundoSaida - segundoEntrada < 0 entao
+    diferencaSegundo := (segundoSaida + 60) - segundoEntrada
+    minutoSaida := minutoSaida - 1
+  senao
+    diferencaSegundo := segundoSaida - segundoEntrada
+  fimse
+  // Verifico se Diferença entre os números que
+  // representam os segundos tem um ou dois dígitos
+  se diferencaSegundo > 9 entao
+    textoSegundo := numpcarac(diferencaSegundo)
+  senao
+    textoSegundo := "0" + numpcarac(diferencaSegundo)
+  fimse
+
+  // Se o minutoSaida for Menor que o Minuto de Entrada
+  se minutoSaida - minutoEntrada < 0 entao
+    diferencaMinuto := (minutoSaida + 60) - minutoEntrada
+    horaSaida := horaSaida - 1
+  senao
+    diferencaMinuto := minutoSaida - minutoEntrada
+  fimse
+  se diferencaMinuto > 9 entao
+    textoMinuto := numpcarac(diferencaMinuto)
+  senao
+    textoMinuto := "0" + numpcarac(diferencaMinuto)
+  fimse
+
+  // Calcular a diferença entre as horas
+  diferencaHora := horaSaida - horaEntrada
+  se diferencaHora > 9 entao
+    textoHora := numpcarac(diferencaHora)
+  senao
+    textoHora := "0" + numpcarac(diferencaHora)
+  fimse
+  retorne textoHora + textoMinuto + textoSegundo
+fimfuncao
+//
+// // tempoDecorrido - Calcula o tempo entre Data/Hora
+//                     Saída e Data/Hora Entrada
+funcao tempoDecorrido(DataEntrada, pHoraEntrada, dataSaida, pHoraSaida: caracter): caracter
+var
+  horaEntrada, minutoEntrada, segundoEntrada: inteiro
+  horaSaida, minutoSaida, segundoSaida: inteiro
+  diferencaHora, diferencaMinuto, diferencaSegundo: inteiro
+  textoHora: caracter
+
+  anoEntrada, mesEntrada, diaEntrada: inteiro
+  anoSaida, mesSaida, diaSaida: inteiro
+  diferencaDia, diferencaMes, diferencaAno: inteiro
+
+  horaE: caracter
+  horaS: caracter
+  horaSoma: caracter
+
+  vazio: caracter
+  numeroHora: inteiro
+inicio
+  // Se a Data de Entrada e Saida forem Iguais
+  se dataEntrada = dataSaida entao
+    retorne fDiferencaHora(horaEntrada, horaSaida)
+  senao // Se a Data Entrada for diferente da Saída !
+
+    horaE := fDiferencaHora(pHoraEntrada, "23:59:59")
+    horaS := fDiferencaHora("00:00:00", pHoraSaida)
+
+    // Função que soma dos horários e retorna
+    // o resultado
+    horaSoma := fSomaHora(horaE, horaS)
+
+    // Decomposição da Data de Entrada
+    diaEntrada := caracpnum(copia(dataEntrada, 1, 2))
+    mesEntrada := caracpnum(copia(dataEntrada, 4, 2))
+    anoEntrada := caracpnum(copia(dataEntrada, 7, 4))
+
+    // Decomposição da Data de Saída
+    diaSaida := caracpnum(copia(dataSaida, 1, 2))
+    mesSaida := caracpnum(copia(dataSaida, 4, 2))
+    anoSaida := caracpnum(copia(dataSaida, 7, 4))
+
+    // Acrescento um dia em função das somas de horas
+    // "quebradas" que fizemos
+    diaEntrada:= diaEntrada + 1
+    se diaEntrada > vDia[mesEntrada] entao
+      diaEntrada := diaEntrada - vDia[mesEntrada]
+      mesEntrada := mesEntrada + 1
+      se mesEntrada > 12 entao
+        mesEntrada := 1
+        anoEntrada := anoEntrada + 1
+      fimse
+    fimse
+
+    // Verifica se o ano de Entrada e Saída é mesmo
+    se anoEntrada = anoSaida entao
+      se mesEntrada = mesSaida entao
+        diferencaDia := diaSaida - diaEntrada
+      senao // Se o Mês for Diferente
+        diferencaMes := mesSaida - mesEntrada
+        // Dia de Saida Menor que o Dia de Entrada
+        se diaSaida - diaEntrada < 0 entao
+          diferencaDia := (diaSaida + vDia[mesEntrada]) - diaEntrada
+        senao
+          diferencaDia := diaSaida - diaEntrada
+        fimse
+      fimse
+    senao // Se o ano for diferente
+      diferencaAno := anoSaida - anoEntrada
+      // Se o Mês for Diferente
+      se mesSaida <> mesEntrada entao
+         se mesSaida - mesEntrada < 0 entao
+          diferencaMes := (mesSaida + 12) - mesEntrada
+        senao
+          diferencaMes := mesSaida - mesEntrada
+        fimse
+
+        // Dia de Saida Menor que o Dia de Entrada
+        se diaSaida - diaEntrada < 0 entao
+          diferencaDia := (diaSaida + vDia[mesEntrada]) - diaEntrada
+        senao
+          diferencaDia := diaSaida - diaEntrada
+        fimse
+      senao // Quando o mês for igual, significa dizer
+            // que o veículo ficou UM ANO no ESTACIONAMENTO
+        diferencaAno := anoSaida - anoEntrada
+        // Garantido que o mês é diferente
+        se mesSaida - mesEntrada < 0 entao
+          diferencaMes := (mesSaida + 12) - mesEntrada
+        senao
+          diferencaMes := mesSaida - mesEntrada
+        fimse
+
+        // Dia de Saida Menor que o Dia de Entrada
+        se diaSaida - diaEntrada < 0 entao
+          diferencaDia := (diaSaida + vDia[mesEntrada]) - diaEntrada
+        senao
+          diferencaDia := diaSaida - diaEntrada
+        fimse
+      fimse
+    fimse
+    diferencaAno := diferencaAno * 360 * 24
+    diferencaMes := diferencaMes * 30 * 24
+    diferencaDia := diferencaDia * 24
+
+    numeroHora := diferencaAno + diferencaMes + diferencaDia
+    numeroHora := caracpnum(copia(horaSoma, 1, 2)) + numeroHora
+    se numeroHora > 9 entao
+      textoHora := numpcarac(numeroHora)
+    senao
+      textoHora := "0" + numpcarac(numeroHora)
+    fimse
+
+    retorne textoHora + ":" + copia(horasoma,3,2) + ":" + copia(horaSoma,5,2)
+  fimse
+
+fimfuncao
+//
+// // calculaValorPagar - Calculo o Valor a Pagar pelo
+//                        usuário do Estacionamento.
+funcao calculaValorPagar(tempoEstadia, tipoVeiculo: caracter): real
+var
+  horaEstadia, minutoEstadia, segundoEstadia: inteiro
+  tamanhoTexto: inteiro
+  valorPagar: real
+inicio
+
+  se tipoVeiculo = "C" entao
+    valorPagar := cVALOR_MINIMO_CARRO
+  senao
+    valorPagar := cVALOR_MINIMO_MOTO
+  fimse
+
+  tamanhoTexto := compr(tempoEstadia)
+
+  horaEstadia := caracpnum(copia(tempoEstadia, 1, pos(":", tempoEstadia) - 1)))
+  minutoEstadia := caracpnum(copia(tempoEstadia, tamanhoTexto - 4, 2))
+  segundoEstadia := caracpnum(copia(tempoEstadia, tamanhoTexto - 1, 2))
+
+  // Tolerância
+  se (horaEstadia = 0) e (minutoEstadia < cTOLERANCIA) entao
+    valorPagar := 0
+  senao
+    se tipoVeiculo = "C" entao
+      valorPagar := valorPagar + (horaEstadia * cVALOR_HORA_CARRO)
+      se minutoEstadia > 0 entao
+        valorPagar := valorPagar + cVALOR_HORA_CARRO
+      fimse
+    senao
+      valorPagar := valorPagar + (horaEstadia * cVALOR_HORA_MOTO)
+      se minutoEstadia > 0 entao
+        valorPagar := valorPagar + cVALOR_HORA_MOTO
+      fimse
+    fimse
+  fimse
+
+  retorne valorPagar
+fimfuncao
+//
+// // verificaHoraSaida - Rotina para verificar se
+//                          a hora de Saída é Válida.
+funcao verificaHoraSaida(horaSaida, horaEntrada, dataEntrada, dataSaida: caracter): logico
+var
+  vazio: caracter
+  entradaNeperiana, saidaNeperiana: real
+inicio
+  se verificaHora(horaSaida) = FALSO entao
+    retorne FALSO
+  senao
+    entradaNeperiana := caracpnum(copia(dataEntrada, 7, 4) + copia(dataEntrada, 4, 2) + copia(dataEntrada, 1, 2) + copia(horaEntrada, 1, 2) + copia(horaEntrada, 4, 2) + copia(horaEntrada, 7, 2))
+    saidaNeperiana := caracpnum(copia(dataSaida, 7, 4) + copia(dataSaida, 4, 2) + copia(dataSaida, 1, 2) + copia(horaSaida, 1, 2) + copia(horaSaida, 4, 2) + copia(horaSaida, 7, 2))
+    se dataEntrada = dataSaida entao
+      se saidaNeperiana > entradaNeperiana entao
+        retorne VERDADEIRO
+      senao
+        escreval
+        escreva("Hora Saída Antecede a Hora de Entrada.")
+        leia(vazio)
+        retorne FALSO
+      fimse
+    senao // Se a Data de Saída for diferente
+          // só pode ser maior que a Entrada
+      retorne VERDADEIRO
+    fimse
+  fimse
+fimfuncao
+//
+// // leHoraEntrada - Verifica se a Hora de Entrada
+//                    está no formato correto e é válida.
+funcao leHoraSaida(placa, tipoVeiculo, dataEntrada, horaEntrada, dataSaida: caracter): caracter
+var
+  horaSaida: caracter
+inicio
+  // Validação Hora de Saída
+  repita
+    limpatela
+    tituloTela
+
+    escreval("Placa do Veículo      : ", placa)
+    escreval("Tipo de Veículo (C/M) : ", tipoVeiculo)
+    escreval("Data de Entrada       : ", dataEntrada)
+    escreval("Hora de Entrada       : ", horaEntrada)
+    escreval("Data de Saída         : ", dataSaida)
+
+    escreva ("Hora de Saída         : ")
+    leia(horaSaida)
+
+  ate verificaHoraSaida(horaSaida, horaEntrada, DataEntrada, dataSaida) = VERDADEIRO
+  retorne horaSaida
+
+fimfuncao
+//
+// // verificaDataSaida - Rotina para verificar se
+//                          a Data de Saída é Válida
+funcao verificaDataSaida(dataSaida, DataEntrada: caracter): logico
+var
+  vazio: caracter
+  entradaNeperiana, saidaNeperiana: inteiro
+inicio
+  se verificaData(dataSaida) = FALSO entao
+    retorne FALSO
+  senao
+    entradaNeperiana := caracpnum(copia(dataEntrada, 7, 4) + copia(dataEntrada, 4, 2) + copia(dataEntrada, 1, 2))
+    saidaNeperiana := caracpnum(copia(dataSaida, 7, 4) + copia(dataSaida, 4, 2) + copia(dataSaida, 1, 2))
+    se saidaNeperiana >= entradaNeperiana entao
+      retorne VERDADEIRO
+    senao
+      retorne FALSO
+      escreval
+      escreva("Data Saída Antecede a Data de Entrada.")
+      leia(vazio)
+    fimse
+  fimse
+fimfuncao
+//
+// // leDataSaida - Verifica se a Data de Saída
+//                    está no formato correto e é válida.
+funcao leDataSaida(placa, tipoVeiculo, dataEntrada, horaEntrada: caracter): caracter
+var
+  dataSaida: caracter
+inicio
+  // Validação Data de Saída
+  repita
+    limpatela
+    tituloTela
+
+    escreval("Placa do Veículo      : ", placa)
+    escreval("Tipo de Veículo (C/M) : ", tipoVeiculo)
+    escreval("Data de Entrada       : ", dataEntrada)
+    escreval("Hora de Entrada       : ", horaEntrada)
+
+    escreva ("Data de Saída         : ")
+    leia(dataSaida)
+
+  ate verificaDataSaida(dataSaida, dataEntrada) = VERDADEIRO
+  retorne dataSaida
+fimfuncao
+//
+// // verificaHora - Rotina para verificar se
+//                   a hora de Entrada é Válida.
+funcao verificaHora(horaEntrada: caracter): logico
+var
+  lHORA_VALIDA: logico
+  vazio: caracter
+  hora, minuto, segundo: inteiro
+inicio
+
+  lHORA_VALIDA := VERDADEIRO
+
+  // Formato hh:mm:ss
+  // Verifica se as ":" estão no lugar
+  se nao ((copia(horaEntrada, 3, 1) = ":") e (copia(horaEntrada, 6, 1) = ":")) entao
+    escreval
+    escreval("Formato Incorreto da Hora. HH:MM:SS")
+    leia(vazio)
+    lHORA_VALIDA := FALSO
+  fimse
+
+  // hh:mm:ss
+  hora := caracpnum(copia(horaEntrada, 1, 2)) // hh
+  minuto := caracpnum(copia(horaEntrada, 4, 2)) // mm
+  segundo := caracpnum(copia(horaEntrada, 7, 2)) // ss
+
+  se nao ((hora >= 0) e (hora <= 23)) entao
+    se lHORA_VALIDA = VERDADEIRO entao
+      escreval
+      escreva("Hora Inválida. O intervalo deve ser de 0 a 23.")
+      leia(vazio)
+      lHORA_VALIDA := FALSO
+    fimse
+  senao
+    se nao ((minuto >= 0) e (minuto <= 59)) entao
+      escreval
+      escreva("Minuto Inválido. O intervalo deve ser de 0 a 59.")
+      leia(vazio)
+      lHORA_VALIDA := FALSO
+    senao
+      se nao ((segundo >= 0) e (segundo <= 59)) entao
+        escreval
+        escreva("Segundo Inválido. O intervalo deve ser de 0 a 59.")
+        leia(vazio)
+        lHORA_VALIDA := FALSO
+      fimse
+    fimse
+  fimse
+  retorne lHORA_VALIDA
+
+fimfuncao
+//
+// // leHoraEntrada - Verifica se a Hora de Entrada
+//                    está no formato correto e é válida.
+funcao leHoraEntrada(placa, tipoVeiculo, dataEntrada: caracter): caracter
+var
+  horaEntrada: caracter
+inicio
+  repita
+    limpatela
+    tituloTela
+
+    escreval("Placa do Veículo      : ", placa)
+    escreval("Tipo de Veículo (C/M) : ", tipoVeiculo)
+    escreval("Data de Entrada       : ", dataEntrada)
+    escreva ("Hora de Entrada       : ")
+    leia(horaEntrada)
+
+  ate verificaHora(horaEntrada) = VERDADEIRO
+  retorne horaEntrada
+
+fimfuncao
+//
+// // verificaData - Rotina para verificar se
+//                   a Data de Entrada é Válida.
+funcao verificaData(dataEntrada: caracter): logico
+var
+  lDATA_VALIDA: logico
+  vazio: caracter
+  dia, mes, ano: inteiro
+inicio
+
+  lDATA_VALIDA := VERDADEIRO
+
+  // Formato DD/MM/AAAA
+  // Verifica se as barras estão no lugar
+  se nao ((copia(dataEntrada, 3, 1) = "/") e (copia(dataEntrada, 6, 1) = "/")) entao
+    escreval
+    escreval("Formato Incorreto da Data. DD/MM/AAAA")
+    leia(vazio)
+    lDATA_VALIDA := FALSO
+  fimse
+
+  // DD/MM/AAAA
+  dia := caracpnum(copia(dataEntrada, 1, 2)) // DD
+  mes := caracpnum(copia(dataEntrada, 4, 2)) // MM
+  ano := caracpnum(copia(dataEntrada, 7, 4)) // AAAA
+
+  se nao ((mes >= 1) e (mes <= 12)) entao
+    se lDATA_VALIDA = VERDADEIRO entao
+      escreval
+      escreva("Mês Inválido. DD/MM/AAAA")
+      leia(vazio)
+      lDATA_VALIDA := FALSO
+    fimse
+  senao
+    se nao ((dia >= 1) e (dia <= vDia[mes])) entao
+      escreval
+      escreva("Dia Inválido. O Mês " + numpcarac(mes) + " tem " + numpcarac(vDia[mes]) + " dias.")
+      leia(vazio)
+      lDATA_VALIDA := FALSO
+    senao
+      se ano < 2020 entao
+        escreval
+        escreva("Ano Inválido. O Estacionamento foi Inaugurado em 2020.")
+        leia(vazio)
+        lDATA_VALIDA := FALSO
+      fimse
+    fimse
+  fimse
+  retorne lDATA_VALIDA
+
+fimfuncao
+//
+// // leDataEntrada - Verifica se a Data de Entrada
+//                    está no formato correto e é válida.
+funcao leDataEntrada(placa, tipoVeiculo: caracter): caracter
+var
+  dataEntrada: caracter
+inicio
+  // Validação Data de Entrada
+  repita
+    limpatela
+    tituloTela
+
+    escreval("Placa do Veículo      : ", placa)
+    escreval("Tipo de Veículo (C/M) : ", tipoVeiculo)
+    escreva ("Data de Entrada       : ")
+    leia(dataEntrada)
+
+  ate verificaData(dataEntrada) = VERDADEIRO
+  retorne dataEntrada
+fimfuncao
+//
+// // verificaTipoVeiculo - Rotina para verificar se
+//                          o tipo de veículo é Carro
+//                          ou Moto
+funcao verificaTipoVeiculo(tipoVeiculo: caracter): logico
+var
+  vazio: caracter
+  lTIPO_VALIDO: logico
+inicio
+
+  lTIPO_VALIDO := VERDADEIRO
+  se nao ((maiusc(tipoVeiculo) = "C") ou (maiusc(tipoVeiculo) = "M")) entao
+    escreval
+    escreva("Tipo de Veículo Inválido. Informe C para Carro ou M para Moto.")
+    leia(vazio)
+    lTIPO_VALIDO := FALSO
+  fimse
+
+  retorne lTIPO_VALIDO
+fimfuncao
+//
+// // leTipoVeiculo - Verifica se o Tipo Veículo está
+//                    no formato correto.
+funcao leTipoVeiculo(placa: caracter): caracter
+var
+  tipoVeiculo: caracter
+inicio
+  repita
+    limpatela
+    tituloTela
+
+    escreval("Placa do Veículo      : ", placa)
+
+    escreva ("Tipo de Veículo (C/M) : ")
+    leia(tipoVeiculo)
+
+  ate verificaTipoVeiculo(tipoVeiculo) = VERDADEIRO
+  retorne tipoVeiculo
+fimfuncao
+//
+// // verificaPlaca - Rotina para verificar se o
+//                    formato da placa é ABC-1234.
+funcao verificaPlaca(placa: caracter): logico
+const
+  cTAMANHO_PLACA = 8
+var
+  vazio: caracter
+  contador: inteiro
+  codigoLetra: inteiro
+  lPLACA_VALIDA: logico
+  tamanhoPlaca: inteiro
+inicio
+
+
+  lPLACA_VALIDA := VERDADEIRO
+
+  para contador de 1 ate 3 faca
+    // Verifica se as três PRIMEIRAS POSIÇÕES estão
+    // preenchidas com LETRAs
+    se nao (asc(maiusc(copia(placa,contador,1))) >= asc("A")) e (asc(maiusc(copia(placa,contador,1))) <= asc("Z")) entao
+      escreval
+      escreva("Placa Inválida. Favor utilizar o Formato ABC-1234.")
+      leia(vazio)
+      lPLACA_VALIDA := FALSO
+      interrompa
+    fimse
+  fimpara
+
+  // Se a placa não tiver 8 dígitos. Formato Inválido.
+  se (compr(placa) <> cTAMANHO_PLACA) e (lPLACA_VALIDA = VERDADEIRO) entao
+    escreval
+    escreva("Placa Inválida. Favor utilizar o Formato ABC-1234.")
+    leia(vazio)
+    lPLACA_VALIDA := FALSO
+  fimse
+
+  // Verifica se o "-" está na posição correta
+  se (copia(placa,4,1) <> "-") e (lPLACA_VALIDA = VERDADEIRO) entao
+    escreval
+    escreva("Placa Inválida. Favor utilizar o Formato ABC-1234.")
+    leia(vazio)
+    lPLACA_VALIDA := FALSO
+  fimse
+
+  se lPLACA_VALIDA = VERDADEIRO entao
+    para contador de 5 ate tamanhoPlaca faca
+      // Verifica se as quatro ÚLTIMOS DÍGITOS da Placa
+      codigoLetra := asc(maiusc(copia(placa,contador,1)))
+      se ((codigoLetra >= asc("A")) e (codigoLetra <= asc("Z"))) entao
+        escreval
+        escreva("Placa Inválida. Favor utilizar o Formato ABC-1234.")
+        leia(vazio)
+        lPLACA_VALIDA := FALSO
+        interrompa
+      fimse
+    fimpara
+  fimse
+
+  retorne lPLACA_VALIDA
+fimfuncao
+//
+// // lePlaca - Verifica se a placa está no formato
+//              correto.
+funcao lePlaca(entradaSaida, placaEntrada: caracter): caracter
+var
+  placa: caracter
+  lPLACA_VALIDA: logico
+  vazio: caracter
+inicio
+  repita
+    limpatela
+    tituloTela
+
+    escreva("Placa do Veículo      : ")
+    leia(placa)
+    se placa = "" entao
+      interrompa
+    fimse
+
+    se verificaPlaca(placa) entao
+      se entradaSaida = "E" entao
+        lPLACA_VALIDA := VERDADEIRO
+      senao
+        se placa = placaEntrada entao
+          lPLACA_VALIDA := VERDADEIRO
+        senao
+          escreval
+          escreva("Este veículo não entrou no Estacionamento.")
+          leia(vazio)
+        fimse
+      fimse
+    fimse
+
+  ate lPLACA_VALIDA = VERDADEIRO
+  retorne placa
+fimfuncao
+//
+// // registraSaida - Permite o registro da entrada
+//                    dos carros no estacionamento.
+procedimento registraSaida(placaEntrada: caracter)
+var
+  placa: caracter
+  dataSaida, horaSaida: caracter
+  tempoEstadia: caracter
+  vazio: caracter
+inicio
+
+  repita
+    limpatela
+    tituloTela
+
+    // Validação da Placa
+    placa := lePlaca("S", placaEntrada)
+
+  // Validação do Tipo de Estacionamento
+  se placa <> "" entao
+    escreval("Tipo de Veículo (C/M) : ", tipoVeiculo)
+    escreval("Data de Entrada       : ", dataEntrada)
+    escreval("Hora de Entrada       : ", horaEntrada)
+    dataSaida   := leDataSaida(placa, tipoVeiculo, dataEntrada, horaEntrada)
+    horaSaida   := leHoraSaida(placa, tipoVeiculo, dataEntrada, horaEntrada, dataSaida)
+
+    escreval
+    escreval("Demonstrativo para Pagamento")
+    escreval("----------------------------")
+    escreval
+    tempoEstadia := tempoDecorrido(dataEntrada,horaEntrada, dataSaida, horaSaida)
+    escreval("Total de Tempo Decorrido : ", tempoEstadia)
+    escreva ("Valor a Pagar            :", calculaValorPagar(tempoEstadia, tipoVeiculo))
+    leia(vazio)
+  fimse
+
+  ate placa = ""
+
+fimprocedimento
+//
+// // registraEntrada - Permite o registro da entrada
+//                      dos carros no estacionamento.
+procedimento registraEntrada
+var
+  placaEntrada: caracter
+inicio
+
+repita
+  limpatela
+  tituloTela
+
+//  escreval
+//  escreval("Registro de Entrada do Veículo")
+// escreval("------------------------------")
+
+  // Validação da Placa
+  placa := lePlaca("E", "") // A placa ainda não foi digitada
+
+  // Validação do Tipo de Estacionamento
+  se placa <> "" entao
+    placaEntrada := placa
+    tipoVeiculo := leTipoVeiculo(placa)
+    dataEntrada := leDataEntrada(placa, tipoVeiculo)
+    horaEntrada := leHoraEntrada(placa, tipoVeiculo, dataEntrada)
+  fimse
+ate placa = ""
+placa := placaEntrada
+fimprocedimento
+//
+// // opcaoInvalida - Exibe uma mensagem ao usuário,
+//                    indicando que opção escolhida
+//                    não consta do menu.
+procedimento opcaoInvalida
+var
+  vazio: caracter
+inicio
+  escreva("Opção Inválida !")
+  leia(vazio)
+fimprocedimento
+//
+// // exibeTraco - Exibe na linha corrente a
+//                 quantidade de traços solicitados
+//                 à rotina
+procedimento exibeTraco(numeroTraco: inteiro)
+var
+  contador: inteiro
+inicio
+  para contador de 1 ate numeroTraco faca
+    escreva("-")
+  fimpara
+  // Pular Linha
+  escreval
+fimprocedimento
+//
+// // tituloTela - Exibe o título da tela.
+//
+procedimento tituloTela
+var
+  titulo: caracter
+  tamanhoTexto: inteiro
+inicio
+  titulo := "SGE - Sistema de Gerenciamento de Estacionamentos"
+  escreval(titulo)
+  tamanhoTexto := compr(titulo)
+  exibeTraco(tamanhoTexto)
+  escreval
+fimprocedimento
+//
+// // menuPrincipal - Monta o Menu Principal do Sistema.
+//
+procedimento menuPrincipal
+var
+  opcaoMenu: inteiro
+inicio
+  repita
+    limpatela
+    tituloTela
+
+    escreval("1 - Registro de Entrada")
+    escreval("2 - Registro de Saída")
+    escreval("0 - Sair")
+    escreval
+    escreva ("Digite a sua Opção : ")
+    leia(opcaoMenu)
+
+    escolha opcaoMenu
+    caso 1
+      registraEntrada
+    caso 2
+      registraSaida(placa)
+    caso 0
+    outroCaso
+      opcaoInvalida
+    fimescolha
+
+  ate opcaoMenu = 0
+fimprocedimento
+//
+// // iniciaVetor - Inicia o vetor que contém o
+//                  último dia de cada Mês.
+procedimento iniciaVetor
+inicio
+  vDia[1] := 31
+  vDia[2] := 28
+  vDia[3] := 31
+  vDia[4] := 30
+  vDia[5] := 31
+  vDia[6] := 30
+  vDia[7] := 31
+  vDia[8] := 31
+  vDia[9] := 30
+  vDia[10] := 31
+  vDia[11] := 30
+  vDia[12] := 31
+fimprocedimento
+//
+// // Programa Principal
+//
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc...
+iniciaVetor
+
+// Exibe o Menu Principal para o usuário
+menuPrincipal
+
+Fimalgoritmo
