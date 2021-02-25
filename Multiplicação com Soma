@@ -1,0 +1,21 @@
+Algoritmo "multiplicação com soma "
+
+Var
+// Seção de Declarações das variáveis 
+num1:inteiro
+num2:inteiro
+aux:inteiro
+prod:inteiro
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+Escreva("Digite um número:")
+leia(num1)
+Escreva("Digite outro número:")
+leia(num2)
+prod<-0
+para aux de 1 ate num1 faça
+prod<-prod + num2
+fimpara
+Escreval("O Produto é",prod)
+Fimalgoritmo
