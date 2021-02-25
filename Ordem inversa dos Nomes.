@@ -1,4 +1,4 @@
-Algoritmo "Ordem inversa "
+Algoritmo "Ordem inversa"
 
 Var
 nomes : vetor [0..4] de caractere
