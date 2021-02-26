@@ -1,0 +1,84 @@
+Algoritmo " Validação do CPF "
+// Matéria     : Validação do CPF.
+//  http://www.macoratti.net/alg_cpf.htm
+/
+
+Var
+// Seção de Declarações das variáveis
+cpf, vazio: caracter
+
+//
+// // cpfValido - Verifica se o CPF é válido.
+//
+funcao cpfValido(cpf: caracter): logico
+var
+  contador: inteiro
+  acumulado: inteiro
+  dezena: inteiro
+  unidade: inteiro
+  confereCPF: caracter
+inicio
+  para contador de 10 ate 2 passo -1 faca
+    acumulado := acumulado + (caracpnum(copia(cpf, contador - 1, 1)) * (12 - contador))
+  fimpara
+
+  dezena := acumulado mod 11
+  se dezena >= 2 entao
+    dezena := 11 - dezena
+  senao
+    dezena := 0
+  fimse
+
+  confereCPF := copia(cpf, 1, 9) + numpcarac(dezena)
+
+  acumulado := 0
+  para contador de 11 ate 2 passo -1 faca
+    acumulado := acumulado + (caracpnum(copia(cpf, contador - 1, 1)) * (13 - contador))
+  fimpara
+
+  unidade := acumulado mod 11
+  se unidade >= 2 entao
+    unidade := 11 - unidade
+  senao
+    unidade := 0
+  fimse
+
+  confereCPF := confereCPF + numpcarac(unidade)
+
+  retorne (cpf = confereCPF)
+fimfuncao
+//
+// // tituloTela - Exibe o Título da Tela.
+//
+procedimento tituloTela
+inicio
+  escreval("Validação de CPF")
+  escreval("----------------")
+  escreval
+fimprocedimento
+
+//
+// // Programa Principal
+//
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc...
+repita
+  limpatela
+  tituloTela
+  escreva("Informe o CPF a Validar : ")
+  leia(cpf)
+
+  escreval
+  se compr(cpf) <> 11 entao
+    escreval("Este CPF não possui 11 dígitos.")
+  senao
+    se cpfValido(cpf) entao
+      escreval("CPF Válido.")
+      pausa
+    senao
+      escreval("CPF Inválido.")
+    fimse
+  fimse
+  leia(vazio)
+ate cpf = ""
+Fimalgoritmo
