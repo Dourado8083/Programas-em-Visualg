@@ -1,0 +1,25 @@
+Algoritmo "Fibonacci"
+// 
+//  
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 26/02/2021
+Var
+ cont:inteiro
+ num1:inteiro
+ num2:inteiro
+ res:inteiro
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+ num1 <- 0
+ num2 <- 1
+ escreva(num1)
+ escreva(num2)
+ PARA cont <- 3 ATÉ 8 FAÇA
+ res <- num1 + num2
+ Escreva(res)
+ num1 <- num2
+ num2 <- res
+fimpara
+Fimalgoritmo
