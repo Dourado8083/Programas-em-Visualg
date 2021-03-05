@@ -1,0 +1,51 @@
+algoritmo "concessionária"
+var
+valor_auto:real
+valor_desconto:real
+valor_ser_pago:real
+i:inteiro
+desconto:real
+ano:inteiro
+resposta:caracter
+conta_menor:inteiro
+conta_maior:inteiro
+inicio
+escrevaL(" *********************************************")
+escrevaL(" * Dourado Véiculos *")
+escrevaL(" *********************************************")
+escreval()
+escreval()
+enquanto i <= 5 faca
+escreva("Entre com o valor do veiculo para calcular o desconto ")
+leia(valor_auto)
+escreva("Digite o ano do automovel ")
+leia(ano)
+se(ano <=2000) entao
+desconto <- valor_auto*0.12
+conta_menor <- conta_menor+1
+escreval("Desconto de 12% =",desconto)
+escreval("Valor a ser pago ",(valor_auto-desconto))
+senao
+escreval()
+desconto <- valor_auto*0.07
+conta_maior<-conta_maior+1
+escreval("Desconto de 7% =",desconto)
+escreval("Valor a ser pago ",(valor_auto-desconto))
+fimse
+ESCREVAL()
+ESCREVAL()
+escreva("Deseja continuar calculando ? ")
+leia(resposta)
+se (resposta = "sim") entao
+i<-i+1
+escreval()
+fimse
+se (resposta ="nao") entao
+i<-6
+fimse
+fimenquanto
+escreval()
+escreval("Total de veiculos com ano até 2000=",conta_menor)
+escreval("Total geral de Veiculos=",(conta_menor+conta_maior))
+escreval("?")
+fimalgoritmo
