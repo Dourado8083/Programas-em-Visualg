@@ -1,0 +1,21 @@
+ALGORITIMO ESTADOCIVIL
+  VAR
+  EC: inteiro
+  EC = 0
+INICIO
+  Escreva("Digite o estado civil (1 – solteiro, 2 – casado, 3 – outros)")
+  Leia EC
+  SE EC = 1 ENTAO
+    Escreva("Solteiro")
+    SENAO
+      SE EC = 2 ENTAO
+        Escreva("Casado")
+        SENAO
+          SE EC = 3 ENTAO
+          Escreva("Outros")
+          SENAO
+          Escreva("Valor inválido")
+          FIMSE
+      FIMSE
+  FIMSE
+FIMALGORITMO
