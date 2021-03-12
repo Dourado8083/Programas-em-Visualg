@@ -1,0 +1,20 @@
+ALGORITMO "Livro"
+    VAR
+    CodigoDoLivro: inteiro
+    Titulo, Autor, Editora: caractere
+    CodigoDoLivro = 0
+INICIO
+    Escreva("Este é um programa em pseudocódigo que exibe na tela os dados de um livro")
+    Escreva("Digite o código do livro")
+    Leia(CodigoDoLivro)
+    Escreva("Digite o título do livro")
+    Leia(Titulo)
+    Escreva("Digite o autor do livro")
+    Leia(Autor)
+    Escreva("Digite a editora do livro")
+    Leia(Editora)
+    Escreva("O código do livro é", CodigoDoLivro)
+    Escreva("O título do livro é", Titulo)
+    Escreva("O autor do livro é", Autor)
+    Escreva("A Editora do livro é", Editora)
+Fimalgoritmo
