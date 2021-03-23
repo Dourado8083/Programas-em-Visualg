@@ -1,3 +1,4 @@
+algoritmo"concessionária"
 var
 desconto, valorPago, valorVeiculo: real
 totalDesconto, totalPago: real
