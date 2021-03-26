@@ -1,0 +1,133 @@
+Algoritmo "pilhas_FIFO"
+Var
+  pilha            : vetor[1..20] de inteiro
+  elemento,valor,i : inteiro
+  comando          : caracter
+  qtd, x,topo      : inteiro
+procedimento listar_tudo
+inicio
+  escreval("Listando a Pilha")
+  para i de 1 ate topo faca
+    escreval(i,"º Elento da Pilha =",pilha[i])
+  fimpara
+  escreval
+  escreval
+fimprocedimento
+procedimento Inicializar
+inicio
+  topo <- 0
+fimprocedimento
+
+funcao PilhaVazia : logico
+inicio
+  se topo = 0 entao
+    retorne verdadeiro
+  senao
+    retorne falso
+  fimse
+fimfuncao
+
+funcao PilhaCheia : logico
+inicio
+  se topo > 20 entao
+    retorne verdadeiro
+  senao
+    retorne falso
+  fimse
+fimfuncao
+
+funcao Empilhar(elemento : inteiro) : logico
+inicio
+  se PilhaCheia entao
+    retorne falso
+  senao
+    topo <- topo + 1
+    pilha[topo] <- elemento
+    retorne verdadeiro
+  fimse
+fimfuncao
+
+funcao Desempilhar : inteiro
+inicio
+  se PilhaVazia entao
+    retorne -999
+  senao
+    elemento <- pilha[topo]
+    pilha[topo] <- 0
+    topo <- topo - 1
+    retorne elemento
+  fimse
+fimfuncao
+Inicio
+  qtd <- 0
+  x <- 0
+  Inicializar
+  // visualG não percebe diferença
+  // entre variaveis maiuscula
+  // e minusculas
+  repita
+    escreval("Bem vindo ao programa das Pilhas -  Depósito ")
+    escreval("---------------------------------------------")
+    escreval("(E) para Empilhar         | (D) para desempilhar")
+    escreval("(T) para imprimir o Topo  | (R) para imprimir o Resultado dos itens desempilhados")
+    escreval("(L) Limpar pilha          | (Li)Listar pilha")
+    escreval("(X) para Encerrar e imprimir a qtd de itens empilhados")
+    escreval("---------------------------------------------")
+    escreval
+    leia(comando)
+    escolha comando
+    caso "li"
+      listar_tudo
+    caso "e"
+      se PilhaCheia entao
+        escreval("Pilha cheia")
+      senao
+        escreva("Digite o valor: ")
+        leia(valor)
+        se Empilhar(valor) entao
+          qtd <- (qtd + 1)
+          escreval("Valor empilhado!")
+          escreval("")
+        fimse
+      fimse
+    caso "d"
+      se PilhaVazia entao
+        escreval("Pilha vazia")
+      senao
+        valor <- Desempilhar
+        x <- valor
+        qtd <- (qtd - 1)
+        escreval("Valor desempilhado: ", valor)
+        escreval("")
+      fimse
+    caso "t"
+      se PilhaVazia entao
+        escreval("Pilha vazia")
+      senao
+        escreval("Topo: ", pilha[topo])
+      fimse
+    caso "r"
+      escreval("o Resultado dos Itens Desempilhados São: ")
+      para i de 4 ate 1 passo -1 faca
+        escreval(pilha[i])
+      fimpara
+      escreval("Valor desempilhado: ", x)
+      escreval
+    caso "x"
+      escreval("o Resultado dos Itens Desempilhados São: ")
+      para i de 4 ate 1 passo -1 faca
+        escreval(pilha[i])
+      fimpara
+      escreval("Valor desempilhado: ", x)
+      escreval("")
+    fimescolha
+  ate comando = "x"
+  se topo = 0 entao
+    topo = 1
+  fimse
+  escreval("Pilha")
+  para i de 4 ate 1 passo -1 faca
+    escreval(pilha[i])
+  fimpara
+  escreval("A quantidade de intens empilhados é de : ", qtd)
+Fimalgoritmo
