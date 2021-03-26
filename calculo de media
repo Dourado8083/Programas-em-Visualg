@@ -1,27 +1,33 @@
-Algoritmo "exercicio06"
-//calculo de media
-//Gustavo Dourado Santos
-Var
-// Variaveis
-n1:real
-n2:real
-n3:real
-n4:real
-media:real
-Inicio
-//processamento
-Escreval("Digite nota1:")
-leia(n1)
-Escreval("Digite nota2:")
-leia(n2)
-Escreval("Digite nota3:")
-leia(n3)
-Escreval("Digite nota4:")
-leia(n4)
-media<-(n1+ n2 + n3 + n4)/4
-se(media >=5)então
-Escreva("Você está aprovado!")
-senão
-Escreva("Você foi reprovado!")
+algoritmo "Ex_41"
+// Função : Calcular a média ponderada de 50 alunos
+var
+x,y:inteiro
+avg,nt,avgp:real
+inicio
+// Seção de Comandos 
+para x de 1 ate 50 faca
+para y de 1 ate 3 faca
+escreval(x,"º aluno, nota[",y," ]")
+leia(nt)
+se y = 1 entao
+avgp<-avgp+nt*2
+senao
+se y = 2 entao
+avgp<-avgp+nt*4
+senao
+avgp<-(avgp+nt*3)/10
 fimse
-Fimalgoritmo
+fimse
+fimpara
+avg<-avg+avgp
+escreval(" ")
+escreval("A média é ",avgp:2:1)
+se avgp >= 7 entao
+escreval("Situação: Aprovado")
+senao
+escreval("Situação: Reprovado")
+fimse
+fimpara
+escreval(" ")
+escreval("A média geral é ",(avg/50):2:1)
+fimalgoritmo
