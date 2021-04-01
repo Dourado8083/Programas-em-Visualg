@@ -1,0 +1,33 @@
+algoritmo "Ex_03"
+// Seção de Declarações
+var
+sal,medsal,msal:real
+f,medf:inteiro
+tpessoa,percpessoa:real
+inicio
+// Seção de Comandos
+medsal<-0
+tpessoa<-0
+percpessoa<-0
+sal<-1
+msal<--99999999
+enquanto sal > 0 faca
+escreval("Digite o salário: ")
+leia(sal)
+medsal<-medsal+sal
+se sal > msal entao
+msal<-sal
+fimse
+se sal <=100 entao
+percpessoa<-percpessoa+1
+fimse
+escreval("Digite o número de filhos: ")
+leia(f)
+medf<-medf+f
+tpessoa<-tpessoa+1
+fimenquanto
+escreval("A média do salário da população é: ", medsal/tpessoa)
+escreval("A média do número de filhos é: ",medf/tpessoa)
+escreval("O maior salário é: ", msal)
+escreval("O percentual de pessoas com salário até R$100,00 é: ",percpessoa*100/tpessoa,"%")
+fimalgoritmo
