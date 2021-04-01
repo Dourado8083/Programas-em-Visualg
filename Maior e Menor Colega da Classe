@@ -1,0 +1,36 @@
+algoritmo "Ex_34"
+// Função : Encontrar o aluno mais baixo e mais alto e informar seu codigo
+// Seção de Declarações
+var
+x,h,n:inteiro
+ma,me,nma,nme:inteiro
+inicio
+// Seção de Comandos
+escreval("Digite 5 conjuntos de 2 valores, o primeiro representando o número")
+escreval("de um aluno, e o segundo representando a sua altura em centímetros")
+para x de 1 ate 5 faca
+escreva(x,"º conjunto n: ")
+leia(n)
+escreva("             h: ")
+leia(h)
+se x = 1 entao
+ma<-h
+me<-h
+nma<-n
+nme<-n
+senao
+se h > ma entao
+ma<-h
+nma<-n
+senao
+se h < me entao
+me<-h
+nme<-n
+fimse
+fimse
+fimse
+fimpara
+escreval(" ")
+escreval("O número do aluno mais alto é: ",nma," e sua altura é: ",ma)
+escreval("O número do aluno mais baixo é: ",nme," e sua altura é: ",me)
+fimalgoritmo
