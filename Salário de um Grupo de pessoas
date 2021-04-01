@@ -1,0 +1,39 @@
+algoritmo "Ex_22"
+// Função :
+// Data : 22/04/2015
+// Seção de Declarações
+var
+medsal,sal:real
+id,c,maid,meid,qtdm:inteiro
+sexo:caracter
+inicio
+// Seção de Comandos
+repita
+escreval("Digite a idade (digite uma idade negativa p/ encerrar): ")
+leia(id)
+se id<0 entao
+interrompa
+fimse
+escreval("Digite o sexo (M/F): ")
+leia(sexo)
+escreval("Digite o salário: ")
+leia(sal)
+se c=0 entao
+meid<-id
+fimse
+se id > maid entao
+maid<-id
+fimse
+se id < meid entao
+meid<-id
+fimse
+se (sexo="F") e (sal<=100) entao
+qtdm<-qtdm+1
+fimse
+medsal<-medsal+sal
+c<-c+1
+ate falso
+escreval("A média do salário do grupo é: ",medsal/c)
+escreval("A maior idade é",maid," e a menor é",meid)
+escreval(qtdm," mulher(es) tem salário inferior a R$ 100,00")
+fimalgoritmo
