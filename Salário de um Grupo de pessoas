@@ -1,6 +1,4 @@
 algoritmo "Ex_22"
-// Função :
-// Data : 22/04/2015
 // Seção de Declarações
 var
 medsal,sal:real
