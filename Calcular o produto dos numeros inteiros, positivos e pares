@@ -1,0 +1,24 @@
+algoritmo "Ex_21"
+// Função : Calcular o produto dos numeros inteiros, positivos e pares
+// Seção de Declarações
+var
+n,som:inteiro
+inicio
+// Seção de Comandos
+repita
+repita
+escreval("Digite um número inteiro e positivo (0 p/ encerrar): ")
+leia(n)
+se n < 0 entao
+escreval("Erro!")
+fimse
+ate n>=0
+se n = 0 entao
+interrompa
+fimse
+se n mod 2 = 0 entao
+som<-som+n
+fimse
+ate falso
+escreval("O produtório do números inteiros, positivos e pares é: ",som)
+fimalgoritmo
