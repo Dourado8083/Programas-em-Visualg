@@ -1,0 +1,23 @@
+algoritmo "calculo fatorial"
+// Função : Calcular o fatorial dos valores lidos
+// Seção de Declarações
+var
+n,aux,x,y,v:inteiro
+inicio
+// Seção de Comandos
+escreval("Quantos valores deveram ser lidos a seguir: ")
+leia(n)
+para x de 1 ate n faca
+escreval("Digite o",x,"º valor: ")
+leia(v)
+aux<-v
+se v = 0 entao
+escreval(" 0, o fatorial é 1")
+senao
+     para y de (v-1) ate 1 passo-1 faca
+          aux<-aux*y
+     fimpara
+escreval(v,", o fatorial é",aux)
+fimse
+fimpara
+fimalgoritmo
