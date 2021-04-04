@@ -1,0 +1,50 @@
+algoritmo "Ex_43"
+// Função : Ordenar valores
+// Seção de Declarações 
+var
+x,y:inteiro
+a,b,c,d,aux:real
+inicio
+// Seção de Comandos 
+escreval("Digite 5 grupos de valores (A,B,C,D)")
+para x de 1 ate 5 faca
+para y de 1 ate 4 faca
+se y = 1 entao
+escreval("Valor de A: ")
+leia(a)
+senao
+se y = 2 entao
+escreval("Valor de B: ")
+leia(b)
+senao
+se y = 3 entao
+escreval("Valor de C: ")
+leia(c)
+senao
+escreval("Valor de D: ")
+leia(d)
+fimse
+fimse
+fimse
+fimpara
+escreval("Ordem de ditação A=",a," B=",b," C=",c," D=",d)
+repita
+se d > c entao
+aux<-d
+d<-c
+c<-aux
+fimse
+se c > b entao
+aux<-c
+c<-b
+b<-aux
+fimse
+se b > a entao
+aux<-b
+b<-a
+a<-aux
+fimse
+ate (a>=b) e (b>=c) e (c>=d)
+escreval("A nova ordem é A=",a," B=",b," C=",c," D=",d)
+fimpara
+fimalgoritmo
