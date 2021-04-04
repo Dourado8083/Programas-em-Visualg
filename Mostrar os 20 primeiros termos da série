@@ -1,0 +1,14 @@
+algoritmo "Ex_37"
+// Função : Mostrar os 20 primeiros termos da série
+// Seção de Declarações
+var
+x,y:inteiro
+inicio
+// Seção de Comandos
+escreva("Digite o valor de X: ")
+leia(x)
+escreval("Os 20 primeiros termos da série é")
+para y de 1 ate 20 faca
+escreval(x*y)
+fimpara
+fimalgoritmo
