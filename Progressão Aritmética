@@ -1,0 +1,23 @@
+algoritmo "Ex_11"
+// Função : PA
+// Data : 21/04/2015
+// Seção de Declarações
+var
+n,a1,r,x,s:inteiro
+inicio
+// Seção de Comandos
+escreval("Qual o número de termos da progressão aritmética: ")
+leia(n)
+escreval("Qual o primeiro termo: ")
+leia(a1)
+escreval("Qual a razão: ")
+leia(r)
+escreval("Os termos da progressão são: ")
+para x de 1 ate n faca
+escreva(a1)
+s<-s+a1
+a1<-a1+r
+fimpara
+escreval(" ")
+escreval("A soma dos termos é: ",s)
+fimalgoritmo
