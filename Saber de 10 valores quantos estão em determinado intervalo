@@ -1,0 +1,20 @@
+algoritmo"exe34"
+var
+x:inteiro
+v,di,fi:real
+inicio
+// Seção de Comandos
+escreval("Digite 10 valores")
+para x de 1 ate 10 faca
+escreval(x,"º valor: ")
+leia(v)
+se (v >= 10) e (v <= 20) entao
+di<-di+1
+senao
+fi<-fi+1
+fimse
+fimpara
+escreval("Dos 10 valores digitados")
+escreval(di," estão dentro do intervalo de 10 e 20")
+escreval("e",fi," não estão nesse intervalo")
+fimalgoritmo
