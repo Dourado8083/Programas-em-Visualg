@@ -1,11 +1,18 @@
 algoritmo "Tabuada"
-
+// Seção de Declarações
 var
-i, numero: inteiro
+n,x,j:inteiro
 inicio
-escreva("Digite um numero para a nossa tabuada:")
-leia(numero)
-para i de 1 ate 10 faca
-escreval( numero ," x ",i," = ",(numero*i))
+// Seção de Comandos
+para x de 1 ate 20 faca
+     escreval("Digite o valor de n: ")
+     leia(n)
+     se n = 0 entao
+     escreval(" 0 x 0 = 0")
+     senao
+     para j de 1 ate n faca
+          escreval(j," x",n," =",j*n)
+     fimpara
+     fimse
 fimpara
 fimalgoritmo
