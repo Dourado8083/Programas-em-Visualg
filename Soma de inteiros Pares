@@ -1,0 +1,25 @@
+algoritmo "Ex_17"
+// Função : Soma dos inteiros positivos de pares (m,n)
+// Seção de Declarações 
+var
+m,n,soma:inteiro
+inicio
+// Seção de Comandos
+repita
+escreval("Digite um para inteiro e positivo, ou valor negativo para encerrar")
+escreval("Digite o valor do 1º (m) número inteiro e positivo do par: ")
+leia(m)
+se m < 0 entao
+interrompa
+fimse
+escreval("Digite o valor do 2º (n) número inteiro e positivo do par: ")
+leia(n)
+se n < 0 entao
+interrompa
+fimse
+se m = n-1 entao
+soma<-soma+n
+fimse
+ate falso
+escreval("A soma dos n consecutivos a partir de m é: ",soma)
+fimalgoritmo
