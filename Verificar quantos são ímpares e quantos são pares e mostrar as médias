@@ -1,0 +1,51 @@
+algoritmo "Ex_19"
+// Função : Verificar quantos são ímpares e quantos são pares e mostrar as médias
+
+// Seção de Declarações
+var
+n,qi,qp,mp,mgeral:inteiro
+inicio
+// Seção de Comandos
+repita
+repita
+escreval("Digite um número positivo (0 p/ encerrar): ")
+leia(n)
+ate n>=0
+se n = 0 entao
+interrompa
+fimse
+se n mod 2 = 0 entao
+qp<-qp+1
+mp<-mp+n
+mgeral<-mgeral+n
+senao
+qi<-qi+1
+mgeral<-mgeral+n
+fimse
+ate falso
+escreval("A quantidade de pares é: ",qp)
+escreval("A quantidade de ímpares é: ",qi)
+escreval("A média dos pares é: ",mp/qp)
+escreval("A média geral é: ",mgeral/(qp+qi))
+fimalgoritmo
+algoritmo "Ex_20"
+// Função : Calcular a soma dos numeros negativos
+// Autor : Thiego Moura
+// Data : 22/04/2015
+// Seção de Declarações
+var
+n,som:inteiro
+inicio
+// Seção de Comandos
+repita
+escreval("Digite um número inteiro (0 p/ encerrar): ")
+leia(n)
+se n = 0 entao
+interrompa
+fimse
+se n < 0 entao
+som<-som+n
+fimse
+ate falso
+escreval("A soma dos números negativos é: ",som)
+fimalgoritmo
