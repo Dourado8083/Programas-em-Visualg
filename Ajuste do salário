@@ -1,0 +1,22 @@
+Algoritmo "salario"
+// 
+//  
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 12/04/2021
+Var
+// Seção de Declarações das variáveis 
+sala:inteiro
+rea:inteiro
+for:real
+reajufinal:real
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+Escreva("Digite seu salario:")
+leia(sala)
+Escreva("Digite o valor do reajuste:")
+leia(rea)
+for <- (sala / 100) * rea
+reajufinal <- for + sala
+escreva("O salario com reajuste é ",reajufinal)
+Fimalgoritmo
