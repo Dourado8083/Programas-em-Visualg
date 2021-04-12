@@ -1,0 +1,41 @@
+algoritmo "Ex_18"
+// Função : Verificar divisores, fatorial e soma do inteiros
+// Seção de Declarações
+var
+m,x,aux:inteiro
+inicio
+// Seção de Comandos
+repita
+      repita
+      aux<-0
+      escreval("Digite um valor inteiro e positivo (0 p/ finalizar): ")
+      leia(m)
+      ate m>=0
+      se m = 0 entao
+      interrompa
+      fimse
+      se m mod 2=0 entao
+         para x de m ate 1 passo -1 faca
+              se m mod x =0 entao
+                 aux<-aux+1
+              fimse
+         fimpara
+      escreval("Existem",aux," divisores para",m)
+      senao
+           se m < 10 entao
+           aux <- m
+           x <- m
+             enquanto aux <> 1 faca
+             m <- m*(aux-1)
+             aux <- aux-1
+             fimenquanto
+           escreval("O fatorial de",x," é",m)
+           senao
+                para x de m ate 1 passo-1 faca
+                aux<-aux+x
+                fimpara
+           escreval("A soma dos inteiros de 1 até",m," é: ",aux)
+           fimse
+      fimse
+ate falso
+fimalgoritmo
