@@ -1,0 +1,49 @@
+Algoritmo "Exercicio 06"
+// Disciplina  :  [Linguagem e Lógica de Programação] 
+// Professor   : 
+// Descrição   :  Supondo que o percentual do distribuidor seja de
+//28% e os impostos de 45%, escrever um algoritmo para ler o custo
+// de fábrica de um carro e o percentual de lucro desejado pelo
+//empresário para calcular e escrever o preço do carro ao consumidor
+Var
+// Seção de Declarações das variáveis
+percent_distrib, percent_impost, percent_lucro: real
+custfab, valor_lucro, preco: real
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+
+escreval
+escreva("------Carro------")
+escreval
+
+escreval
+escreva("Digite o Custo de Fábrica: ")
+leia(custfab)
+
+//cálculos
+percent_distrib <- custfab * 0.28
+percent_impost <- custfab * 0.45
+custfab <- percent_distrib + percent_impost)
+
+escreval
+escreva("Digite o Percentual de Lucro Desejado: ")
+leia(percent_lucro)
+limpatela
+
+//cálculos
+valor_lucro <- custfab * percent_lucro
+preco <- custfab + valor_lucro
+
+escreval
+escreva("----Resultados----")
+escreval
+
+escreval
+escreva("O Valor do Lucro Será: ", valor_lucro)
+
+escreval
+escreva("O Preço do Carro valerá para o Consumidor: ", preco)
+
+
+Fimalgoritmo
