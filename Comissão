@@ -1,0 +1,45 @@
+Algoritmo "Calculo do Comissionamento dos Vendedores"
+// Matéria     : Aprendendo a Programar para Salvar o Planeta
+
+const
+  cCOMISSAO = 10 / 100
+  cNUMERO_VENDEDOR = 3
+
+Var
+// Seção de Declarações das variáveis 
+vendedor1, vendedor2, vendedor3: real
+totalVenda: real
+mediaVenda: real
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+escreval("Loja de Calçados")
+escreval("----------------")
+escreval
+
+escreval("Cáculo do Comissionamento dos Vendedores")
+escreval("----------------------------------------")
+escreval
+
+escreva("Digite o Valor de Vendas do Primeiro Vendedor : ")
+leia(vendedor1)
+escreva("Digite o Valor de Vendas do Segundo  Vendedor : ")
+leia(vendedor2)
+escreva("Digite o Valor de Vendas do Terceiro Vendedor : ")
+leia(vendedor3)
+
+// Processamento
+totalVenda := vendedor1 + vendedor2 + vendedor3
+mediaVenda := totalVenda / cNUMERO_VENDEDOR
+
+// Saída de Dados
+escreval
+escreval("Comissão do Primeiro Vendedor : ", vendedor1 * cCOMISSAO)
+escreval("Comissão do Segundo  Vendedor : ", vendedor2 * cCOMISSAO)
+escreval("Comissão do Terceiro Vendedor : ", vendedor3 * cCOMISSAO)
+
+escreval
+escreval("Total de Vendas    : ", totalVenda:6:2)
+escreval("Média por Vendedor : ", mediaVenda:6:2)
+
+Fim
