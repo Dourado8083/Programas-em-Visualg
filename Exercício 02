@@ -1,0 +1,18 @@
+leia(m)
+enquanto (m > 0) faca
+  calc := 0
+  se (m mod 2) = 0 entao
+    PARA i := 1 ate m faca
+      SE (m mod i) = 0 entao
+        calc := calc + 1
+      fimse
+      fimpara
+      ESCREVA(calc)
+  SENAO
+    PARA i := 1 ate m-1 faca
+      calc := calc + i
+    fimpara
+    ESCREVA(calc)
+  fimse
+  leia(m)
+fimenquanto
