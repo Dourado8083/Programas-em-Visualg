@@ -1,0 +1,26 @@
+Algoritmo "semnome"
+// 
+//  
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 11/05/2021
+Var
+// Seção de Declarações das variáveis
+cont:inteiro
+num:inteiro
+nume:inteiro
+res:inteiro
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+num<-0
+nume<-1
+escreva(num)
+escreva(nume)
+para cont <- 3 ate 8 faça
+res<-num + nume
+escreva(res)
+num<-nume
+nume<-res
+fimpara
+Fimalgoritmo
