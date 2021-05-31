@@ -1,0 +1,23 @@
+programa
+{
+	
+	
+	funcao inicio()
+	{
+//Crie um programa que receba valores do usuário para preencher uma matriz 3X3, e
+//em seguida, exiba a soma dos valores dela e a soma dos valores da primeira
+//diagonal, ou seja, diagonal principal.
+inteiro num[3][3],linha=0,coluna=0,soma=0,calc,diasec
+para(linha=0;linha<3;linha++){
+para(coluna=0;coluna<3;coluna++){
+	escreva("\nEntre com o valor da linha e coluna")
+	leia(num[linha][coluna])
+	
+  soma = soma + num[linha][coluna]
+  
+    }
+ }
+escreva("O valor da soma das matrizes:",soma)
+calc = num[0][0] + num[1][1] + num[2][2] 
+}
+}
